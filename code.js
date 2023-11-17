@@ -5,20 +5,25 @@ window.onload = async () => {
   const wizards = await getAllWizards();
   const houses = await getAllhouses();
   const elixirs = await getAllElixirs();
-  const merda = "funciona api";
+  const text = "";
+  let elisir = {};
 
   const spinnerHtmlElement = document.getElementById('spinner');
   spinnerHtmlElement.remove();
-
+  elisir=wizards.elixirs;
   for (const wizard of wizards) {
     
+    for(var i = 0; i<3;){
+        text += eli.name;
+        debugger;
+    }
+    debugger;
     const mainHtmlElement = document.getElementById('main');
     const newElement = document.createElement('button');
     newElement.innerHTML = `
       <h2>${wizard.firstName,wizard.lastName}</h2>
       <p>${wizard.id}</p>
-      <p>${wizard.elixirs[0].name}</p>
-      <p>${createElixir(wizard.elixirs[0].name,elixirs)}</p>
+      <p>${text}</p>
       
 
       
