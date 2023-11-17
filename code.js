@@ -17,10 +17,10 @@ window.onload = async () => {
     newElement.innerHTML = `
       <h2>${wizard.firstName,wizard.lastName}</h2>
       <p>${wizard.id}</p>
-      <p>${wizard.elixirs.toString()}</p>
+      <p>${wizard.elixirs[0].name}</p>
       
     `;
-    
+    newElement.onclick = () => addToCartWizards(wizard.name);
     mainHtmlElement.appendChild(newElement);
   }
 
@@ -33,7 +33,7 @@ window.onload = async () => {
       <h2>${merda}</h2>
       <p>${house.name}</p>
     `;
-    
+    newElement.onclick = () => addToCartHouses(house.name);
     mainHtmlElement.appendChild(newElement);
   }
 };
@@ -49,5 +49,27 @@ async function getAllWizards() {
     const data = await response.json();
     return data;
   }
+
+
+function addToCartWizards(productName) {
+    const currentProduct = cart[productName] ?? {
+      name: productName,
+      quantity: 0
+    };
+    currentProduct.quantity++;
+    cart[productName] = currentProduct;
+    const cartElement = document.getElementById('cart');
+    cartElement.innerText = JSON.stringify(cart, null, 2);
+  }
+
+  function addToCartHouses(productName) {
+    const currentProduct = cart2[productName] ?? {
+      name: productName,
+    };
+    cart2[productName] = currentProduct;
+    const cartElement = document.getElementById('cart2');
+    cartElement.innerText = JSON.stringify(cart2, null, 2);
+  }
+  
 
  
