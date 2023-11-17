@@ -20,7 +20,7 @@ window.onload = async () => {
     newElement.innerHTML = `
       <h2>${wizard.firstName + wizard.lastName}</h2>
       <p>${wizard.id}</p>
-      <p>${text}</p>
+      <p>${retornaElixirs(wizard)}</p>
       
 
       
@@ -85,11 +85,11 @@ function addToCartHouses(productName) {
   }
 
 function retornaElixirs(wizard){
-    var resultat;
-    wizard.elixir.array.forEach(element => {
-        resultat += wizard.elixir.name;
-    });
-    return resultat;
+  var resultat = "";
+  wizard.elixirs.forEach(elixir => {
+    resultat += elixir.name + ", ";
+  });
+  return resultat.slice(0, -2); 
 }
 
 async function getAllElixirs() {
