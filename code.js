@@ -15,9 +15,10 @@ window.onload = async () => {
     const mainHtmlElement = document.getElementById('main');
     const newElement = document.createElement('button');
     newElement.innerHTML = `
-      <h2>${wizard.id}</h2>
-      <p>${wizard.LastName}</p>
-      <p>${merda}</p>
+      <h2>${wizard.firstName,wizard.lastName}</h2>
+      <p>${wizard.id}</p>
+      <p>${wizard.elixirs.toString()}</p>
+      
     `;
     
     mainHtmlElement.appendChild(newElement);
