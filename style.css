@@ -1,83 +1,94 @@
 .loader {
-    width: 48px;
-    height: 48px;
-    border: 5px solid #FFF;
-    border-bottom-color: #FF3D00;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-  }
-  
-  @keyframes rotation {
-    0% {
-      transform: rotate(0deg);
-    }
-  
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  #maint{
-    font:400;
-    text-align: center;
-    color:blue
-  }
-  header{
-    background:#ff0000;
-  }
-  #cart{
-    background:rgb(11, 11, 235);
-    color:#FFF;
-    font:100
-    
-  }
-  #cart2{
-    background:rgb(93, 235, 11);
-    color:#FFF;
-    font:100
-  }
-  #main{
-    background-image: url("https://media.diy.com/is/image/Kingfisher/harry-potter-beige-mischief-smooth-wallpaper~5011583413137_36c_bq?$MOB_PREV$&$width=768&$height=768");
-  }
-  #elixirst{
-    font:200;
-    text-align: center;
-    color:rgb(255, 238, 0)
-  }
-  #infoelixirs{
-    background:rgb(245, 3, 108);
-    font:100
-  }
-  #housest {
-    background-size: cover;
-    padding: 20px;
-    color: rgb(251, 255, 9);
-    text-align: center;
-  }
-  #wizardst {
-    background-size: cover;
-    padding: 20px;
-    color: rgb(0, 0, 0);
-    text-align: center;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: #FF3D00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
   }
 
-  #houses{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 20px;
+  100% {
+    transform: rotate(360deg);
   }
+}
+
+#info {
+  font-size: 40px;
+  text-align: center;
+  color: rgb(0, 0, 0)
   
-  #housesdiv {
-    background-size: cover;
-    padding: 20px;
-    color: white;
-  }
-  
-  @media (max-width: 600px) {
-    #houses {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(4, 1fr);
-    }
-  }
+
+}
+
+#maint {
+  font: small-caps 100%/200% serif;
+  font-size: 60px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  background: #ebb5b5;
+
+}
+
+header {
+  background: #ebb5b5;
+}
+
+#cart {
+  background: rgb(216, 207, 211);
+  color: #FFF;
+  font-size: 20px;
+  text-align: center;
+
+
+}
+
+#cart2 {
+  background:rgb(216, 207, 211);
+  color: #FFF;
+  font-size: 20px;
+  text-align: center;
+}
+
+#main {
+  background-image: url("https://media.diy.com/is/image/Kingfisher/harry-potter-beige-mischief-smooth-wallpaper~5011583413137_36c_bq?$MOB_PREV$&$width=768&$height=768");
+  text-align: center;
+  font: small-caps 100%/200% serif;
+  color:rgb(253, 253, 253);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+#infoelixirs {
+  background: rgb(216, 207, 211);
+  color: #FFF;
+  font-size: 20px;
+  text-align: center;
+}
+#houses {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+}
+
+#housesdiv {
+  background-size: cover;
+  padding: 20px;
+  color: white;
+}
+footer{
+  background: #ebb5b5;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: bold;
+  font: small-caps 100%/200% serif;
+}

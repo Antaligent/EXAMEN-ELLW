@@ -13,7 +13,7 @@ window.onload = async () => {
   elisir = wizards.elixirs;
   for (const wizard of wizards) {
 
-    const mainHtmlElement = document.getElementById('wizards');
+    const mainHtmlElement = document.getElementById('wwizards');
     const newElement = document.createElement('button');
     newElement.innerHTML = `
       <h2>${wizard.firstName + wizard.lastName}</h2>
@@ -40,7 +40,7 @@ window.onload = async () => {
 
     }
     if (house.name == "RavenClaw") {
-      newElement.style.backgroundImage = "url('https://static.wikia.nocookie.net/esharrypotter/images/3/36/Logo_Ravenclaw_2.png/revision/latest/scale-to-width-down/250?cb=20160417160853')";
+      newElement.style.backgroundImage = "url('https://www.tienda-medieval.com/30631-large_default/banderin-de-la-casa-ravenclaw-harry-potter.jpg')";
 
     }
     if (house.name == "Hufflepuff") {
