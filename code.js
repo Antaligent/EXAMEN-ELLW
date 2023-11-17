@@ -5,7 +5,8 @@ let cart2 = {};
 
 window.onload = async () => {
   const wizards = await getAllWizards();
-  const houses = await getAllHouses();
+  const houses = await getAllhouses();
+  const merda = "funciona api";
 
   const spinnerHtmlElement = document.getElementById('spinner');
   spinnerHtmlElement.remove();
@@ -14,10 +15,13 @@ window.onload = async () => {
     const mainHtmlElement = document.getElementById('main');
     const newElement = document.createElement('button');
     newElement.innerHTML = `
-      <h2>${film.id}</h2>
-      <p>${film.name}</p>
+      <h2>${wizard.FirstName}</h2>
+      <p>${wizard.LastName}</p>
+      <p>${merda}</p>
+      
+
     `;
-    newElement.onclick = () => addToCartFilms(wizard.title);
+    
     mainHtmlElement.appendChild(newElement);
   }
 
@@ -26,22 +30,22 @@ window.onload = async () => {
     const mainHtmlElement = document.getElementById('main');
     const newElement = document.createElement('button');
     newElement.innerHTML = `
-      <h2>${character.id}</h2>
-      <p>${character.name}</p>
+      <h2>${house.id}</h2>
+      <p>${house.name}</p>
     `;
-    newElement.onclick = () => addToCartCharacters(house.name);
+    
     mainHtmlElement.appendChild(newElement);
   }
 };
 
 async function getAllWizards() {
-    const response = await fetch(`${SWAPI_BASE_URL}/wizards`);
+    const response = await fetch(`${SWAPI_BASE_URL}/Wizards`);
     const data = await response.json();
     return data.results;
   }
 
-  async function getAllHouses() {
-    const response = await fetch(`${SWAPI_BASE_URL}/people`);
+  async function getAllhouses() {
+    const response = await fetch(`${SWAPI_BASE_URL}/Houses`);
     const data = await response.json();
     return data.results;
   }
