@@ -1,7 +1,5 @@
 const SWAPI_BASE_URL = 'https://wizard-world-api.herokuapp.com';
 
-let cart = {};
-let cart2 = {};
 
 window.onload = async () => {
   const wizards = await getAllWizards();
@@ -17,8 +15,7 @@ window.onload = async () => {
         sang = resultat.name;
 
     }
-    debugger;
-
+   
     const mainHtmlElement = document.getElementById('main');
     const newElement = document.createElement('button');
     newElement.innerHTML = `
@@ -27,7 +24,7 @@ window.onload = async () => {
       <p>${sang}</p>
       
     `;
-    newElement.onclick = () => addToCartWizards(wizard.id);
+    newElement.onclick = () => addToCartWizards(wizard.lastName);
     mainHtmlElement.appendChild(newElement);
   }
 
@@ -39,6 +36,22 @@ window.onload = async () => {
       <h2>${house.name}</h2>
       <p>${house.id}</p>
     `;
+   if(house.name == "Gryffindor"){
+    newElement.style.backgroundImage= "url('https://static.wikia.nocookie.net/esharrypotter/images/a/a3/Gryffindor_Pottermore.png/revision/latest/thumbnail/width/360/height/360?cb=20140922195249')";
+   
+   }
+   if(house.name == "RavenClaw"){
+    newElement.style.backgroundImage= "url('https://media.mykaramelli.com/galeria/articulos/decoracion-de-pared-emblema-ravenclaw-harry-potter-61cm_12420_1.jpg')";
+   
+   }
+   if(house.name == "Hufflepuff"){
+    newElement.style.backgroundImage= "url('https://cdn.shopify.com/s/files/1/1541/8579/files/Hufflepuff-harry_potter_large.JPG?v=1491538917')";
+   
+   }
+   if(house.name == "Slytherin"){
+    newElement.style.backgroundImage= "url('https://static.wikia.nocookie.net/esharrypotter/images/d/d0/Logo_Slytherin_2.png/revision/latest?cb=20160417160853')";
+   
+   }
     newElement.onclick = () => addToCartHouses(house.name);
     mainHtmlElement.appendChild(newElement);
   }
@@ -58,21 +71,15 @@ async function getAllWizards() {
 
 
 function addToCartWizards(productName) {
-    const currentProduct = cart[productName] ?? {
-      name: productName,
-    };
-    cart[productName] = currentProduct;
+    
     const cartElement = document.getElementById('cart');
-    cartElement.innerText = JSON.stringify(cart, null, 2);
+    cartElement.innerText = JSON.stringify(productName, null, 2);
   }
 
   function addToCartHouses(productName) {
-    const currentProduct = cart2[productName] ?? {
-      name: productName,
-    };
-    cart2[productName] = currentProduct;
+    
     const cartElement = document.getElementById('cart2');
-    cartElement.innerText = JSON.stringify(cart2, null, 2);
+    cartElement.innerText = JSON.stringify(productName, null, 2);
   }
   
 
