@@ -12,26 +12,32 @@ window.onload = async () => {
   spinnerHtmlElement.remove();
 
   for (const wizard of wizards) {
+    var sang = "";
+    for(const resultat of wizards){
+        sang = resultat.name;
+
+    }
+    debugger;
+
     const mainHtmlElement = document.getElementById('main');
     const newElement = document.createElement('button');
     newElement.innerHTML = `
       <h2>${wizard.firstName,wizard.lastName}</h2>
       <p>${wizard.id}</p>
-      <p>${wizard.elixirs[0].name}</p>
+      <p>${sang}</p>
       
     `;
-    newElement.onclick = () => addToCartWizards(wizard.name);
+    newElement.onclick = () => addToCartWizards(wizard.id);
     mainHtmlElement.appendChild(newElement);
   }
 
   
   for (const house of houses) {
-    debugger;
     const mainHtmlElement = document.getElementById('main');
     const newElement = document.createElement('button');
     newElement.innerHTML = `
-      <h2>${merda}</h2>
-      <p>${house.name}</p>
+      <h2>${house.name}</h2>
+      <p>${house.id}</p>
     `;
     newElement.onclick = () => addToCartHouses(house.name);
     mainHtmlElement.appendChild(newElement);
@@ -54,9 +60,7 @@ async function getAllWizards() {
 function addToCartWizards(productName) {
     const currentProduct = cart[productName] ?? {
       name: productName,
-      quantity: 0
     };
-    currentProduct.quantity++;
     cart[productName] = currentProduct;
     const cartElement = document.getElementById('cart');
     cartElement.innerText = JSON.stringify(cart, null, 2);
