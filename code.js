@@ -28,7 +28,7 @@ window.onload = async () => {
     const mainHtmlElement = document.getElementById('main');
     const newElement = document.createElement('button');
     newElement.innerHTML = `
-      <h2>${house.id}</h2>
+      <h2>${merda}</h2>
       <p>${house.name}</p>
     `;
     
@@ -45,7 +45,7 @@ async function getAllWizards() {
   async function getAllhouses() {
     const response = await fetch(`${SWAPI_BASE_URL}/Houses`);
     const data = await response.json();
-    return data.id;
+    return data;
   }
 
  
