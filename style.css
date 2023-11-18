@@ -60,7 +60,7 @@ header {
   background-image: url("https://media.diy.com/is/image/Kingfisher/harry-potter-beige-mischief-smooth-wallpaper~5011583413137_36c_bq?$MOB_PREV$&$width=768&$height=768");
   text-align: center;
   font: small-caps 100%/200% serif;
-  color:rgb(253, 253, 253);
+  color:rgb(0, 0, 0);
   font-weight: bold;
   font-size: 20px;
 }
@@ -75,8 +75,13 @@ header {
 #houses {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
+  gap: 1rem;
+  
+}
+@media (max-width: 600px) {
+  #houses {
+    grid-template-columns: 1fr;
+  }
 }
 
 #housesdiv {

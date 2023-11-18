@@ -16,11 +16,10 @@ window.onload = async () => {
     const mainHtmlElement = document.getElementById('wwizards');
     const newElement = document.createElement('button');
     newElement.innerHTML = `
-      <h2>${wizard.firstName + wizard.lastName}</h2>
-      <p>${wizard.id}</p>
+      <h2>${wizard.firstName +''+ wizard.lastName}</h2>
       <p>${retornaElixirs(wizard)}</p>
     `;
-    newElement.onclick = () => addToCartWizards(wizard.lastName);
+    newElement.onclick = () => addToCartWizards(wizard.firstName, wizard.lastName);
     mainHtmlElement.appendChild(newElement);
   }
 
@@ -39,8 +38,8 @@ window.onload = async () => {
       newElement.style.backgroundImage = "url('https://m.media-amazon.com/images/I/61-ZyevOLIL._AC_UF1000,1000_QL80_.jpg')";
 
     }
-    if (house.name == "RavenClaw") {
-      newElement.style.backgroundImage = "url('https://www.tienda-medieval.com/30631-large_default/banderin-de-la-casa-ravenclaw-harry-potter.jpg')";
+    if (house.name == "Ravenclaw") {
+      newElement.style.backgroundImage = "url('https://img.posterstore.com/zoom/wb0016-8harrypotter-ravenclaw50x70-38850-76228.jpg')";
 
     }
     if (house.name == "Hufflepuff") {
@@ -51,7 +50,7 @@ window.onload = async () => {
       newElement.style.backgroundImage = "url('https://media.mykaramelli.com/galeria/articulos/decoracion-de-pared-emblema-slytherin-harry-potter-61cm_12421_1.jpg')";
 
     }
-    newElement.onclick = () => addToCartHouses(house.name);
+    newElement.onclick = () => addToCartHouses(house.name,newElement);
     mainHtmlElement.appendChild(newElement);
   }
 
@@ -83,17 +82,25 @@ async function getAllhouses() {
 }
 
 
-function addToCartWizards(productName) {
+function addToCartWizards(productName,lastName) {
 
   const cartElement = document.getElementById('cart');
-  cartElement.innerText = JSON.stringify(productName, null, 2);
+  cartElement.innerText = JSON.stringify(productName+' '+ lastName, null, 2);
 }
 
-function addToCartHouses(productName) {
+function addToCartHouses(productName, button) {
 
   const cartElement = document.getElementById('cart2');
   cartElement.innerText = JSON.stringify(productName, null, 2);
+  const backgroundImage = document.getElementById('main');
+  backgroundImage.style.backgroundImage = button.style.backgroundImage;
+
 }
+
+
+
+
+
 
 function retornaElixirs(wizard) {
   var resultat = "";
