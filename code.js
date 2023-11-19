@@ -8,6 +8,15 @@ window.onload = async () => {
   const text = "";
   let elisir = {};
 
+  const apareix = document.getElementById('maint');
+  apareix.addEventListener('mouseover', () => {
+    apareix.style.backgroundImage = 'url(https://hips.hearstapps.com/hmg-prod/images/harry-potter-meme-1537191365.jpg?crop=1.00xw:0.667xh;0,0.283xh&resize=1200:*)';
+  });
+  const desapareix = document.getElementById('maint');
+  desapareix.addEventListener('mouseout', () => {
+    desapareix.style.backgroundImage = 'none';
+  });
+
   const spinnerHtmlElement = document.getElementById('spinner');
   spinnerHtmlElement.remove();
   elisir = wizards.elixirs;
@@ -16,7 +25,7 @@ window.onload = async () => {
     const mainHtmlElement = document.getElementById('wwizards');
     const newElement = document.createElement('button');
     newElement.innerHTML = `
-      <h2>${wizard.firstName +''+ wizard.lastName}</h2>
+      <h2>${wizard.firstName + '' + wizard.lastName}</h2>
       <p>${retornaElixirs(wizard)}</p>
     `;
     newElement.onclick = () => addToCartWizards(wizard.firstName, wizard.lastName);
@@ -50,7 +59,7 @@ window.onload = async () => {
       newElement.style.backgroundImage = "url('https://media.mykaramelli.com/galeria/articulos/decoracion-de-pared-emblema-slytherin-harry-potter-61cm_12421_1.jpg')";
 
     }
-    newElement.onclick = () => addToCartHouses(house.name,newElement);
+    newElement.onclick = () => addToCartHouses(house.name, newElement);
     mainHtmlElement.appendChild(newElement);
   }
 
@@ -82,10 +91,10 @@ async function getAllhouses() {
 }
 
 
-function addToCartWizards(productName,lastName) {
+function addToCartWizards(productName, lastName) {
 
   const cartElement = document.getElementById('cart');
-  cartElement.innerText = JSON.stringify(productName+' '+ lastName, null, 2);
+  cartElement.innerText = JSON.stringify(productName + ' ' + lastName, null, 2);
 }
 
 function addToCartHouses(productName, button) {
@@ -116,7 +125,7 @@ async function getAllElixirs() {
   return data;
 }
 
-async function getAllIngredients(){
+async function getAllIngredients() {
   const response = await fetch(`${SWAPI_BASE_URL}/Ingredients`);
   const data = await response.json();
   return data;
